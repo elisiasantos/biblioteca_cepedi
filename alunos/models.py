@@ -1,6 +1,5 @@
 from django.db import models
 from datetime import date
-<<<<<<< HEAD
 
 class Aluno(models.Model):
     nome = models.CharField(max_length=100, blank=False, null=False)
@@ -24,8 +23,6 @@ class Aluno(models.Model):
         verbose_name_plural = 'Alunos'
         ordering = ['nome']
 
-=======
-
 class Aluno(models.Model):
     nome = models.CharField(max_length=100, blank=False, null=False)
     matricula = models.CharField(max_length=20, blank=False, null=False)
@@ -47,4 +44,3 @@ class Aluno(models.Model):
         verbose_name = 'Aluno'
         verbose_name_plural = 'Alunos'
         ordering = ['nome']
->>>>>>> b6ddb6a928331a6fc296ace8a97435b78bfc75f2
