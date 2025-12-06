@@ -9,3 +9,5 @@ class AlunoForm(forms.ModelForm):
         model = Aluno
         exclude = ['data_criacao', 'ultima_modificacao']
         fields = '__all__'
+
+

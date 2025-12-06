@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+from django.contrib.messages import constants as messages
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -32,7 +34,7 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'crispy_forms',
-    'bootstrap4',
+    'bootstrap5',
     'widget_tweaks',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -45,8 +47,6 @@ INSTALLED_APPS = [
     'apps.emprestimos',
     'apps.core',
 ]
-
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -131,7 +131,18 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+
+MESSAGE_TAGS = {
+    messages.SUCCESS: 'alert-success',
+    messages.WARNING: 'alert-warning',
+    messages.ERROR: 'alert-danger',
+    messages.INFO: 'alert-info',
+    messages.DEBUG: 'alert-debug'
+}
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap5'

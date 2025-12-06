@@ -44,10 +44,10 @@
                                 <a href="#">
                                     <i class="fa fa-search" aria-hidden="true" style="color: blue;"></i>
                                 </a>
-                                <a href="#">
+                                <a href="{% url 'alunos:editar_aluno' a.id %}">Editar
                                     <i class="fa fa-pencil-square" aria-hidden="true" style="color: #6B8E23;"></i>
                                 </a>
-                                <a href="#">
+                                <a href="{% url 'alunos:excluir_aluno' a.id %}"> Excluir
                                     <i class="fa fa-trash" aria-hidden="true" style="color: red;"></i>
                                 </a>
                             </td>
