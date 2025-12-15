@@ -1,10 +1,71 @@
+{% load widget_tweaks %}
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-$END$
+    <div class="row">
+        <div class="col-12">
+        </div>
+    </div>
+    <div class="card mb-3">
+        <div class="card-header">
+            <h2><i class="fa fa-list"> Listagem de Emprestimos</i></h2>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Aluno</th>>
+                            <th>Livro</th>
+                            <th>Data da Devolução</th>
+                            <th>Data Prev. da Devolução</th>
+                            <th>Status</th>
+                            <th>Opções</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for a in emprestimos %}
+                        <tr>
+                            <td>{{ a.id }}</td>
+                            <td><a href="#">{{ a.nome.upper }}</a></td>
+                            <td>{{ a.livro }}</td>
+                            <td>{{ a.data_devolucao }}</td>
+                            <td>{{ a.data_prevista_devolucao }}</td>
+                            <td>{{ a.status  | date:'d/m/Y'}}</td>
+                            <td>
+                                <a href="#">
+                                    <i class="fa fa-search" aria-hidden="true" style="color: blue;"></i>
+                                </a>
+                                <a href="{% url 'emprestimos:editar_emprestimo' a.id %}">
+                                    <i class="fa fa-pencil-square" aria-hidden="true" style="color: #6B8E23;"></i>
+                                </a>
+                                <a href="{% url 'emprestimos:excluir_emprestimo' a.id %}">
+                                    <i class="fa fa-trash" aria-hidden="true" style="color: red;"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 card mb-3">
+        <div class="card-header">
+            <a href="{% url 'emprestimos:inserir_emprestimo' %}"><button class="btn btn-success">Cadastrar</button></a>
+        </div>
+    </div>
 </body>
 </html>
